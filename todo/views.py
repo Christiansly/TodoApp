@@ -22,3 +22,7 @@ def add_task(request):
   
   task = Task.objects.create(name = task_name, deadline = time, priority = task_priority)
   return HttpResponseRedirect("/")
+  
+def delete_todo(request, task_id):
+  Task.objects.get(id = task_id).delete()
+  return HttpResponseRedirect("/")
