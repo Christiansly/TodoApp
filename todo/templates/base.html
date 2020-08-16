@@ -39,7 +39,7 @@
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <div class="container">
-<form method = "POST" action = "add_todo/">
+<form method = "POST" action = "{% url 'add' %}">
   {% csrf_token %}
   <div class="form-group">
     <label for="task">Task Name</label>

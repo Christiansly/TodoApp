@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block header %}
+  <ul class="nav nav-tabs dark">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Current Tasks</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'completed_tasks' %}">Completed Tasks</a>
+    </li>
+   
+  </ul>
+{% endblock %}
+{% block content %}
+
+
+<ul class="list-group">
+  {% for task in tasks %}
+  <li class="list-group-item">
+    <span>{{task}} </span>
+  </li>
+  {% endfor %}
+
+</ul>
+{% endblock %}
