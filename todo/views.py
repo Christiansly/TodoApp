@@ -12,7 +12,7 @@ def index(request):
   
 def completed_tasks(request):
   tasks = Task.objects.all().filter(completed = True).order_by('-time_created')
-  context = {"tasks": tasks, "date": date}
+  context = {"tasks": tasks}
   return render(request, "todo/complete.html", context)
   
 def add_task(request):
