@@ -2,12 +2,14 @@ from django.shortcuts import render
 from .models import Task
 from django.http import HttpResponseRedirect
 from datetime import datetime
+from django.utils import timezone
 from .forms import TaskForm
 # Create your views here.
 def index(request):
-  date = datetime.now()
+  date = timezone.now()
+  date = date.date()
   tasks = Task.objects.all().filter(completed = False).order_by("-priority")
-  context = {"tasks": tasks}
+  context = {"tasks": tasks, 'date':date}
   return render(request, "todo/index.html", context)
   
 def completed_tasks(request):
